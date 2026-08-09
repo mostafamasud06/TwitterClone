@@ -8,7 +8,7 @@
         private string _email;
 
         public User()
-        {
+        { // constructor 
             _id = Guid.NewGuid();
         }
 
