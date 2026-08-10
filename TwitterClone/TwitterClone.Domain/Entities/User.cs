@@ -1,21 +1,11 @@
 ﻿namespace TwitterClone.Domain.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        private Guid _id;
+
         private string _firstName;
         private string _lastName;
         private string _email;
-
-        public User()
-        { // constructor 
-            _id = Guid.NewGuid();
-        }
-
-        public Guid Id {  
-            get { return _id; }
-        }
-
         public string FirstName // Property for the user's first name
         {
             get { return _firstName; }
