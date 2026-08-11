@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Tweet
+    public class Tweet:BaseEntity
     {
-        private Guid _id;
-        private Guid _authorId;
+        private Guid _userid;
+        
         private string _content;
 
         public Tweet()
         {
             _id = Guid.NewGuid();
-            _authorId = Guid.NewGuid();
+       
         }
-        public Guid Id { get { return _id; } }
-        public Guid AuthorId { get { return _authorId; } }
+        public Guid UserId 
+        { 
+            get { return _userid; } 
+            set { _userid = value; }
+        }
+        
 
         public string Content
         {

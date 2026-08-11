@@ -6,6 +6,13 @@
         private string _firstName;
         private string _lastName;
         private string _email;
+
+        // Constructor Chaining , in here base clase (BaseEntity.cs)'s constructor called , by that constructors parameter value passed
+        // passrd by this constructor
+        public User(): base(Guid.NewGuid())
+        {
+
+        }
         public string FirstName // Property for the user's first name
         {
             get { return _firstName; }

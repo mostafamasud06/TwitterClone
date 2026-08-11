@@ -12,9 +12,9 @@
     
 
     // to apply set encapsulation added by construtor
-    public BaseEntity()
+    public BaseEntity(Guid id)
         {// constructor
-            Id = Guid.NewGuid();
+            Id = id;
             CreatedAt = DateTime.UtcNow;
 
         }
