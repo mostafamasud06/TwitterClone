@@ -8,10 +8,11 @@ namespace TwitterClone.Domain.Entities
         
         private string _content;
 
-        public Tweet()
+        // first base cnstructor will initialized than Tweet constructor
+
+        public Tweet(string content):base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-       
+            _content = content;
         }
         public Guid UserId 
         { 
@@ -24,6 +25,12 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _content; }
             set { _content = value; }
+        }
+
+        public override string DescribeRecord()
+        {
+            
+            return $"UserId: {UserId}, Content: {Content}";
         }
     }
 }

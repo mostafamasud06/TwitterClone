@@ -30,5 +30,11 @@
             get { return _email; }
             set { _email = value; }
         }
+
+        public override string DescribeRecord()
+        {
+            
+            return $"FirstName: {FirstName}, LastName: {LastName}, Email: {Email}";
+        }
     }
 }

@@ -12,11 +12,18 @@
     
 
     // to apply set encapsulation added by construtor
-    public BaseEntity(Guid id)
-        {// constructor
-            Id = id;
-            CreatedAt = DateTime.UtcNow;
+        public BaseEntity(Guid id)
+            {// constructor
+                Id = id;
+                CreatedAt = DateTime.UtcNow;
 
+            }
+        // we will override this in other classes
+   
+        public virtual string DescribeRecord()
+        {
+            return $"BaseEntity: Id: {Id}, CreatedAt: {CreatedAt}, ModifiedAt: {ModifiedAt}, CreatedBy: {CreatedBy}, ModifiedBy: {ModifiedBy}";
         }
+
     }
 }

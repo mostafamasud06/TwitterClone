@@ -4,39 +4,14 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    internal class Retweet
+    public class Retweet:Tweet
     {
-        private Guid _orginalTweetId;
-        private Guid _reTweetId;
-        private Guid _authorId;
-        private string _reTweetContent;
-
-        public Retweet()
+        public Retweet(Guid tweetByUserId) :base("tweet") 
         {
-            _orginalTweetId = Guid.NewGuid();
-            _reTweetId = Guid.NewGuid();
-            _authorId = Guid.NewGuid();
+            TweetByUserId = tweetByUserId;
         }
 
-        public Guid OrginalTweetId
-        {
-            get { return _orginalTweetId; }
-        }
-
-        public Guid ReTweetId
-        {
-            get { return _reTweetId; }
-        } 
-        public Guid AuthorId
-        {
-            get { return _authorId; }
-        }
-
-        public string ReTweetContent
-        {
-            get { return _reTweetContent; }
-            set { _reTweetContent = value; }
-        }
+        public Guid TweetByUserId { get; set; }
 
     }
 }

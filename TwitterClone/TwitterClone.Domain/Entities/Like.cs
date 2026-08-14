@@ -4,13 +4,13 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Like
+    public class Like:BaseEntity
     {
         private Guid _userId;
         private Guid _tweetId;
         private string _likedAt;
 
-        public Like()
+        public Like():base(Guid.NewGuid())
         {
             _userId = Guid.NewGuid();
             _tweetId = Guid.NewGuid();
@@ -31,6 +31,13 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _likedAt; }
             set { _likedAt = value; }
+        }
+
+
+        public override string DescribeRecord()
+        {
+            
+            return $"UserId: {UserId}, TweetId: {TweetId}";
         }
 
     }
