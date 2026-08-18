@@ -6,12 +6,12 @@ namespace TwitterClone.Domain.Entities
 {
     public class CommentNotification:Notification
     {
-        public CommentNotification(string commentByUserId) :base("comment")
+        public CommentNotification(Guid commentByUserId) :base("comment")
         {
             CommentByUserId = commentByUserId;
         }
 
-        public string CommentByUserId { get; set; }
+        public Guid CommentByUserId { get; set; }
 
         public void CommentNotificationMessage(string message) 
         {
@@ -22,6 +22,11 @@ namespace TwitterClone.Domain.Entities
         {
             
             return $"CommentByUserId: {CommentByUserId} ";
+        }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {CommentByUserId} commented on your post. Check to reply";
         }
     }
 }
