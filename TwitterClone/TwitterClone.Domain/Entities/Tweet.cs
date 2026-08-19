@@ -2,11 +2,13 @@
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Tweet:BaseEntity
+    public class Tweet:BaseEntity,ILikeable
     {
-        private Guid _userid;
+        private Guid _userId;
         
         private string _content;
+
+        public static int MaxContentLength = 200;
 
         // first base cnstructor will initialized than Tweet constructor
 
@@ -14,10 +16,18 @@ namespace TwitterClone.Domain.Entities
         {
             _content = content;
         }
+
+        public Tweet(Guid userId, string content) : base(Guid.NewGuid())
+        {
+            _userId = userId;
+            _content = content;
+        }
+
+
         public Guid UserId 
         { 
-            get { return _userid; } 
-            set { _userid = value; }
+            get { return _userId; } 
+            set { _userId = value; }
         }
         
 
@@ -27,10 +37,27 @@ namespace TwitterClone.Domain.Entities
             set { _content = value; }
         }
 
+
+        public void AddContent(string content)
+        {
+            _content = content;
+        }
+
+        public void AddContent(Guid userId, string content)
+        {
+            _userId = userId;
+            _content = content;
+        }
+
         public override string DescribeRecord()
         {
             
             return $"UserId: {UserId}, Content: {Content}";
+        }
+
+        public bool CanBeLiked()
+        {
+            return true;
         }
     }
 }

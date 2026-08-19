@@ -2,7 +2,7 @@
 
 
 
-// notifications a list instance
+// notifications a list instance -> Upcasting
 var notifications = new List<Notification>
 {
     new SystemNotification(),
@@ -18,7 +18,8 @@ foreach (var notification in notifications)
 }
 
 
-
+//Notification likeNotificationMessage = new LikeNotification(Guid.NewGuid());
+        //OR
 //var likeNotificationMessage = new LikeNotification(Guid.NewGuid());
 //Console.WriteLine(likeNotificationMessage.GetMessage());
 
