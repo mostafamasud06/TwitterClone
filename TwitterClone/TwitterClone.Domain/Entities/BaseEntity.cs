@@ -6,7 +6,7 @@
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
 
-        public Guid CreaatedBy { get; private set; }
+        public Guid CreatedBy { get; private set; }
 
         public Guid? ModifiedBy { get; private set; }
     
@@ -18,7 +18,7 @@
                 CreatedAt = DateTime.UtcNow;
 
             }
-        // we will override this in other classes
+        // we will override this method/behaviour in other classes
    
         public virtual string DescribeRecord()
         {

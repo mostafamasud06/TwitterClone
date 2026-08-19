@@ -1,7 +1,7 @@
 ﻿
 namespace TwitterClone.Domain.Entities
 {
-    public class Notification:BaseEntity
+    public abstract class Notification:BaseEntity
     {
         // FIELDS - Private variables that store data
         private Guid _userId;
@@ -38,10 +38,13 @@ namespace TwitterClone.Domain.Entities
             set { _isRead = value; }
         }
 
-        public override string DescribeRecord()
+        public string GetNotificationInformation()
         {
             
-            return $" UserId: {UserId}, Type: {Type}, Message: {Message}, IsRead: {IsRead}";
+            return $"UserId: {_userId}, NotificationType: {_type}, MessageRead: {_isRead}";
         }
+
+        public abstract string GetMessage();
+        
     }
 }
